@@ -1,0 +1,46 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a demo API to ICMP-ping an IP address.",
+        "title": "Simple ICMP Ping API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/ping": {
+            "get": {
+                "description": "Sends an ICMP Echo Request to the given IP address",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Ping an IP address via ICMP",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "IP Address",
+                        "name": "ip",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "400": {
+                        "description": "Missing IP",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
